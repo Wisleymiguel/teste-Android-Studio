@@ -1,11 +1,3 @@
 # Ignorar a pasta node_modules
 node_modules/
 
-# Ignorar arquivos de log
-*.log
-
-# Ignorar pasta de build
-dist/
-
-# Ignorar arquivos de configuração locais
-.env

@@ -37,14 +37,27 @@ exports.config = {
     connectionRetryCount: 3,
     
     framework: 'mocha',
-    
-    
-    reporters: ['spec'],
-
-    
-    mochaOpts: {
+    reporters: [
+        'spec',
+        [
+          'allure',
+          {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
+          },
+        ],
+      ],
+        
+      mochaOpts: {
         ui: 'bdd',
         timeout: 60000
+      },
+      afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+            await browser.takeScreenshot();
+        }
     },
-
+    
+      
 }

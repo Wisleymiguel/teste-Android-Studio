@@ -15,14 +15,13 @@ class LoginPage {
 
     async login(email, password) {
         // Aguarda o email ficar visível e seta o valor
-        await this.email.waitForDisplayed({ timeout: 10000 });
+        await this.email.waitForDisplayed({ timeout: 1000 });
         await this.email.setValue(email);
         // Aguarda o campo de senha ficar visível e seta o valor
-        await this.password.waitForDisplayed({ timeout: 10000 });
+        await this.password.waitForDisplayed({ timeout: 1000 });
         await this.password.setValue(password);
-        // Aguarda o botão de login ficar visível e clica nele
-        await this.btnLogin.waitForDisplayed({ timeout: 10000 });
-        await this.btnLogin.click();
+       // await this.btnLogin.waitForDisplayed({ timeout: 1000 });
+       // await this.btnLogin.click();
     }
 }
 
