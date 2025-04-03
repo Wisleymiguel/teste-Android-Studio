@@ -2,10 +2,10 @@ exports.config = {
   runner: 'local',
   port: 4723,
 
-  // Sauce Labs auth
+  // 🔐 Autenticação do Sauce Labs
   user: 'oauth-wisleymiguel4032x-4019b',
   key: 'a1a34a93-fd52-4f85-a4d1-c08246ef704e',
-  region: 'us',
+  region: 'us', // ou 'eu' se sua conta for na Europa
 
   specs: ['./test/specs/**/*.js'],
   exclude: [],
@@ -14,16 +14,18 @@ exports.config = {
   capabilities: [
     {
       platformName: 'Android',
-      'appium:deviceName': 'Android GoogleAPI Emulator',
-      'appium:platformVersion': '12.0',
+      'appium:deviceName': 'Google Pixel 5', // ⚠️ Tem que existir na região que você está usando
+      'appium:platformVersion': '14.0',
       'appium:automationName': 'UiAutomator2',
-      'appium:app': 'storage:filename=ebacshop (1).aab',
+      'appium:app': 'storage:filename=ebacshop.aab', // Nome exato enviado para o storage
       'appium:appWaitActivity': 'MainActivity',
       'appium:disableIdLocatorAutocompletion': true,
+
       'sauce:options': {
         build: 'appium-build-teste-Ebac',
         name: 'EBAC Shop Test',
-        deviceOrientation: 'PORTRAIT'
+        deviceOrientation: 'PORTRAIT',
+        appiumVersion: '2.0.0' // 🔧 Necessário definir uma versão suportada!
       }
     }
   ],
@@ -34,7 +36,7 @@ exports.config = {
   connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
 
-  // ATIVAR o Sauce Labs
+  // ✅ Necessário para Sauce Labs funcionar
   services: ['sauce'],
 
   framework: 'mocha',
@@ -54,5 +56,5 @@ exports.config = {
   mochaOpts: {
     ui: 'bdd',
     timeout: 60000
-  },
+  }
 };
