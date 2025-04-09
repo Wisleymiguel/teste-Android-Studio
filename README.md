@@ -35,7 +35,3 @@ Este projeto foi criado com o objetivo de testar aplicações Android utilizando
 > ✨ **Estratégia:** Separar as branches por ambiente ou etapa permite um fluxo limpo de desenvolvimento e facilita reuso em projetos futuros.
 
 ---
-
-## ▶️ Como Executar o Projeto
-
-###
